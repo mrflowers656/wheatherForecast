@@ -13,9 +13,9 @@ namespace Simulate504.Controllers
         }
 
         [HttpPost("simulate-504")]
-        public async Task<IActionResult> Simulate504Post()
+        public async Task<IActionResult> Simulate504Post(int secondsToDelay)
         {
-            int delaySeconds = 360;
+            int delaySeconds = secondsToDelay;
             _logger.LogInformation($"Simulating a long request for {delaySeconds} seconds...");
 
             await Task.Delay(TimeSpan.FromSeconds(delaySeconds));
